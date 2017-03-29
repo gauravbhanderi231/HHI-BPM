@@ -1,0 +1,47 @@
+<!--<GridLayout rows="0,auto,100">
+  <label class="header" text="HHI WORKFLOWS" row="1"></label>
+  <GridLayout #background scaleX="1.4" scaleY="1.4" class="background" (loaded)="startBackgroundAnimation(background)"></GridLayout>
+
+  <StackLayout #mainContainer class="main-container" row="2">
+
+    <GridLayout #formControls class="form-controls" rows="auto, auto, auto" translateY="400">
+      <TextField hint="Username" keyboardType="email" returnKeyType="next" (returnPress)="focusPassword()" [(ngModel)]="user.email"
+        [isEnabled]="!isAuthenticating" autocorrect="false" autocapitalizationType="none" [class.light]="!isLoggingIn" row="1"></TextField>
+      <TextField #password hint="Password" secure="true" returnKeyType="next" (returnPress)="focusDomain()" [(ngModel)]="user.password"
+        [isEnabled]="!isAuthenticating" [class.light]="!isLoggingIn" row="2"></TextField>
+      <DropDown #domain [class.light]="!isLoggingIn" [isEnabled]="!isAuthenticating" [items]="domains" [selectedIndex]="selectedIndex"
+        (selectedIndexChanged)="onchange($event)" hint="Select Domain" (opened)="onopen()" row="3">
+      </DropDown>
+      <ActivityIndicator [busy]="isAuthenticating" rowSpan="3"></ActivityIndicator>
+    </GridLayout>
+  </StackLayout>
+  <label text="LOGIN" class="footer" (tap)="submit()" row="3"></label>
+<AbsoluteLayout #logoContainer class="logo-container">
+    
+  </AbsoluteLayout>-->
+<!--<AbsoluteLayout class="loginbutton-container">
+    <label text="HHI WORKFLOW"></label>
+
+  </AbsoluteLayout>
+</GridLayout>-->
+<GridLayout rows="70,*,110" class="background">
+  <label class="header" text="HHI WORKFLOWS" row="0"></label>
+  <StackLayout #mainContainer row="1">
+    <GridLayout #formControls rows="250, auto,auto,auto">
+
+      <TextField hint="Username" keyboardType="email" returnKeyType="next" (returnPress)="focusPassword()" [(ngModel)]="user.email"
+        [isEnabled]="!isAuthenticating" autocorrect="false" autocapitalizationType="none" [class.light]="!isLoggingIn" row="1"></TextField>
+      <TextField #password hint="Password" secure="true" returnKeyType="next" (returnPress)="focusDomain()" [(ngModel)]="user.password"
+        [isEnabled]="!isAuthenticating" [class.light]="!isLoggingIn" row="2"></TextField>
+      <DropDown #domain [class.light]="!isLoggingIn" [isEnabled]="!isAuthenticating" [items]="domains" [selectedIndex]="selectedIndex"
+        (selectedIndexChanged)="onchange($event)" hint="Select Domain" (opened)="onopen()" row="3">
+      </DropDown>
+      <ActivityIndicator [busy]="isAuthenticating" rowSpan="4"></ActivityIndicator>
+    </GridLayout>
+  </StackLayout>
+  <label class="footer" text="LOGIN" row="2" (tap)="submit()"></label>
+
+</GridLayout>
+<AbsoluteLayout #logoContainer class="logo-container" >
+  <Image src="res://user_icon" stretch="none"></Image>
+</AbsoluteLayout>

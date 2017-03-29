@@ -1,0 +1,34 @@
+.main-container {
+  /*height: auto;
+  width: 275;*/
+}
+.main-label {
+  font-size: 28;
+  margin-top: 32;
+  margin-bottom: 32;
+  letter-spacing: 0.3;
+}
+TextField, DropDown {
+  margin-bottom: 10;
+}
+.submit-button {
+  margin-top: 15;
+}
+.header, .footer{
+  font-weight: bold;
+  display: block;
+  color: white;
+  background-color: #2f8ac9;
+  padding-top: 25;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+}
+.footer{
+  padding-top: 20;
+}
+.logo-container Image {
+
+  top: 150;
+
+}
