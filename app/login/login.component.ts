@@ -9,7 +9,7 @@ import { Page } from "ui/page";
 import { TextField } from "ui/text-field";
 import { SelectedIndexChangedEventData } from "nativescript-drop-down";
 import { alert, LoginService, User } from "../shared";
-
+let fingerprintAuth = require("nativescript-fingerprint-auth");
 @Component({
   selector: "gr-login",
   moduleId: module.id,
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   // @ViewChild("initialContainer") initialContainer: ElementRef;
   //@ViewChild("mainContainer") mainContainer: ElementRef;
-   @ViewChild("logoContainer") logoContainer: ElementRef;
+  @ViewChild("logoContainer") logoContainer: ElementRef;
   //@ViewChild("formControls") formControls: ElementRef;
   // // @ViewChild("signUpStack") signUpStack: ElementRef;
   @ViewChild("password") password: ElementRef;
@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
   }
   public onchange(args: SelectedIndexChangedEventData) {
     console.log(`Drop Down selected index changed from ${args.oldIndex} to ${args.newIndex}`);
+    this.user.domain = this.domains[args.newIndex];
   }
 
   public onopen() {
@@ -56,26 +57,15 @@ export class LoginComponent implements OnInit {
   focusDomain() {
     this.domain.nativeElement.focus();
   }
-  submit() {
-    if (!this.user.isValidEmail()) {
-      alert("hhezlkjdslfkjsdkf");
-      return;
-    }
-
-    this.isAuthenticating = true;
-    if (this.isLoggingIn) {
-      this.login();
-    } else {
-      this.signUp();
-    }
-  }
 
   login() {
     if (getConnectionType() === connectionType.none) {
-      alert("Groceries requires an internet connection to log in.");
+      alert("HHI Workflows requires an internet connection to log in.");
       return;
     }
-
+    console.log(this.user.email);
+    console.log(this.user.password);
+    console.log(this.user.domain);
     this.userService.login(this.user)
       .subscribe(
       () => {
@@ -83,7 +73,9 @@ export class LoginComponent implements OnInit {
         this.router.navigate(["/"]);
       },
       (error) => {
-        alert("Unfortunately we could not find your account.");
+        console.log('here');
+        this.router.navigate(["/"]);
+        //alert("Unfortunately we could not find your account.");
         this.isAuthenticating = false;
       }
       );
@@ -150,24 +142,29 @@ export class LoginComponent implements OnInit {
   }
 
   showMainContent() {
-    //let initialContainer = <View>this.initialContainer.nativeElement;
-    //let mainContainer = <View>this.mainContainer.nativeElement;
     let logoContainer = <View>this.logoContainer.nativeElement;
-    //let formControls = <View>this.formControls.nativeElement;
-    // //let signUpStack = <View>this.signUpStack.nativeElement;
     let animations = [];
-    //mainContainer.style.visibility = "visible";
-     logoContainer.style.visibility = "visible";
+    logoContainer.style.visibility = "visible";
 
-    // // Fade in the main container and logo over one half second.
-    //animations.push({ target: mainContainer, opacity: 1, duration: 500 });
-     animations.push({ target: logoContainer, opacity: 1, duration: 500 });
-
-    // // Slide up the form controls and sign up container.
-    // //animations.push({ target: signUpStack, translate: { x: 0, y: 0 }, opacity: 1, delay: 500, duration: 150 });
-    //animations.push({ target: formControls, translate: { x: 0, y: 300}, opacity: 1, delay: 450, duration: 350 });
-
+    animations.push({ target: logoContainer, opacity: 1, duration: 500 });
     // // Kick off the animation queue
     new Animation(animations, false).play();
+    // fingerprintAuth.available().then(
+    //   function (avail) {
+    //     if (avail) {
+    //       fingerprintAuth.verifyFingerprintWithCustomFallback({
+    //         message: 'Scan yer finger', // optional, shown in the fingerprint dialog (default: 'Scan your finger').
+    //         fallbackMessage: 'Enter PIN' // optional, the button label when scanning fails (default: 'Enter password').
+    //       }).then(
+    //         function () {
+    //           console.log("Fingerprint was OK");
+    //         },
+    //         function (error) {
+    //           console.log("Fingerprint NOT OK" + (error.code ? ". Code: " + error.code : ""));
+    //         }
+    //         )
+    //     }
+    //   }
+    //)
   }
 }

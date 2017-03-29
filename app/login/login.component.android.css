@@ -25,10 +25,9 @@ TextField, DropDown {
   text-align: center;
 }
 .footer{
-  padding-top: 20;
+  padding: 20;
+  margin-bottom: 45;
 }
 .logo-container Image {
-
   top: 150;
-
 }

@@ -24,7 +24,7 @@
 
   </AbsoluteLayout>
 </GridLayout>-->
-<GridLayout rows="70,*,110" class="background">
+<GridLayout rows="70,*,auto" class="background">
   <label class="header" text="HHI WORKFLOWS" row="0"></label>
   <StackLayout #mainContainer row="1">
     <GridLayout #formControls rows="250, auto,auto,auto">
@@ -39,7 +39,7 @@
       <ActivityIndicator [busy]="isAuthenticating" rowSpan="4"></ActivityIndicator>
     </GridLayout>
   </StackLayout>
-  <label class="footer" text="LOGIN" row="2" (tap)="submit()"></label>
+  <button class="footer" text="LOGIN" row="2" (tap)="login()"></button>
 
 </GridLayout>
 <AbsoluteLayout #logoContainer class="logo-container" >
