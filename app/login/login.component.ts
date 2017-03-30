@@ -10,6 +10,8 @@ import { TextField } from "ui/text-field";
 import { SelectedIndexChangedEventData } from "nativescript-drop-down";
 import { alert, LoginService, User } from "../shared";
 let fingerprintAuth = require("nativescript-fingerprint-auth");
+import app = require("application");
+import platform = require("platform");
 @Component({
   selector: "gr-login",
   moduleId: module.id,
@@ -24,9 +26,9 @@ export class LoginComponent implements OnInit {
 
 
   // @ViewChild("initialContainer") initialContainer: ElementRef;
-  //@ViewChild("mainContainer") mainContainer: ElementRef;
-  @ViewChild("logoContainer") logoContainer: ElementRef;
-  //@ViewChild("formControls") formControls: ElementRef;
+  // @ViewChild("mainContainer") mainContainer: ElementRef;
+  // @ViewChild("logoContainer") logoContainer: ElementRef;
+  // @ViewChild("formControls") formControls: ElementRef;
   // // @ViewChild("signUpStack") signUpStack: ElementRef;
   @ViewChild("password") password: ElementRef;
   @ViewChild("domain") domain: ElementRef;
@@ -36,6 +38,16 @@ export class LoginComponent implements OnInit {
     private page: Page) {
     this.user = new User();
     this.domains = ["SPECTRUM", "RAYOVAC"];
+    // if (app.android && platform.device.sdkVersion >= "21") {
+    //   //let test = new android.View.View;
+    //   //console.log(test);
+    //   let androidApp = app.android;
+    //   let window = androidApp.startActivity.getWindow();
+    //   // set the status bar to Color.Transparent
+    //   window.setStatusBarColor(0x000000);
+    //   let decorView = window.getDecorView();
+    //   //decorView.setSystemUiVisibility(test.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+    // }
   }
 
   ngOnInit() {
@@ -63,9 +75,6 @@ export class LoginComponent implements OnInit {
       alert("HHI Workflows requires an internet connection to log in.");
       return;
     }
-    console.log(this.user.email);
-    console.log(this.user.password);
-    console.log(this.user.domain);
     this.userService.login(this.user)
       .subscribe(
       () => {
@@ -75,7 +84,7 @@ export class LoginComponent implements OnInit {
       (error) => {
         console.log('here');
         this.router.navigate(["/"]);
-        //alert("Unfortunately we could not find your account.");
+        // alert("Unfortunately we could not find your account.");
         this.isAuthenticating = false;
       }
       );
@@ -142,13 +151,13 @@ export class LoginComponent implements OnInit {
   }
 
   showMainContent() {
-    let logoContainer = <View>this.logoContainer.nativeElement;
-    let animations = [];
-    logoContainer.style.visibility = "visible";
+    // let logoContainer = <View>this.logoContainer.nativeElement;
+    // let animations = [];
+    // logoContainer.style.visibility = "visible";
 
-    animations.push({ target: logoContainer, opacity: 1, duration: 500 });
+    // animations.push({ target: logoContainer, opacity: 1, duration: 500 });
     // // Kick off the animation queue
-    new Animation(animations, false).play();
+    // new Animation(animations, false).play();
     // fingerprintAuth.available().then(
     //   function (avail) {
     //     if (avail) {
@@ -165,6 +174,6 @@ export class LoginComponent implements OnInit {
     //         )
     //     }
     //   }
-    //)
+    // )
   }
 }
