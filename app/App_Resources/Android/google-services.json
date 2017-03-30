@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "857108659838",
+    "firebase_url": "https://hhi-workflows.firebaseio.com",
+    "project_id": "hhi-workflows",
+    "storage_bucket": "hhi-workflows.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857108659838:android:31608f134e0d269c",
+        "android_client_info": {
+          "package_name": "com.hhiworkflows.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857108659838-ejqpv1tq66er380dmr57mvt7dle2mqmn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt0i2a5EvYYYzYW1DzSr3-KKP3A1w0JTM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
