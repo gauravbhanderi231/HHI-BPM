@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (getConnectionType() === connectionType.none) {
-      alert("HHI Workflows requires an internet connection to log in.");
+      alert("HHI Workflows require an internet connection to log in.");
       return;
     }
     this.userService.login(this.user)
@@ -88,50 +88,6 @@ export class LoginComponent implements OnInit {
         this.isAuthenticating = false;
       }
       );
-  }
-
-  signUp() {
-    if (getConnectionType() === connectionType.none) {
-      alert("Groceries requires an internet connection to register.");
-      return;
-    }
-
-    this.userService.register(this.user)
-      .subscribe(
-      () => {
-        alert("Your account was successfully created.");
-        this.isAuthenticating = false;
-        this.toggleDisplay();
-      },
-      (message) => {
-        // TODO: Verify this works
-        if (message.match(/same user/)) {
-          alert("This email address is already in use.");
-        } else {
-          alert("Unfortunately we were unable to create your account.");
-        }
-        this.isAuthenticating = false;
-      }
-      );
-  }
-
-  forgotPassword() {
-    prompt({
-      title: "Forgot Password",
-      message: "Enter the email address you used to register for Groceries to reset your password.",
-      defaultText: "",
-      okButtonText: "Ok",
-      cancelButtonText: "Cancel"
-    }).then((data) => {
-      if (data.result) {
-        this.userService.resetPassword(data.text.trim())
-          .subscribe(() => {
-            alert("Your password was successfully reset. Please check your email for instructions on choosing a new password.");
-          }, () => {
-            alert("Unfortunately, an error occurred resetting your password.");
-          });
-      }
-    });
   }
 
   toggleDisplay() {

@@ -9,7 +9,7 @@ import { setStatusBarColors, BackendService, LoginService } from "./shared";
 
 import { LoginModule } from "./login/login.module";
 import { GroceriesModule } from "./groceries/groceries.module";
-
+import {WorkflowsModule} from "./workflows/workflows.module"
 import {registerElement} from "nativescript-angular/element-registry";
 registerElement("DropDown",()=>require("nativescript-drop-down").DropDown);
 setStatusBarColors();
@@ -27,6 +27,7 @@ setStatusBarColors();
     NativeScriptRouterModule.forRoot(appRoutes),
     LoginModule,
     GroceriesModule,
+    WorkflowsModule
   ],
   declarations: [
       AppComponent,

@@ -20,28 +20,25 @@
   <Image src="res://user_icon" stretch="none"></Image>
 </AbsoluteLayout>-->
 
-<GridLayout columns="45,*,*,45" rows="auto, *, *">
+<GridLayout rows="100, *, 50">
 
-  <!--This area is the top header bar-->
-  <GridLayout class="header-container" colSpan="4">
-    <Label text="HHI WORKFLOWS" class="header"></Label>
+  <GridLayout class="header-container" >
+    <!--<Label text="HHI WORKFLOWS" class="header"></Label>-->
   </GridLayout>
 
-  <!--The weather information container, two grid-based columns with a stacked layout in each one-->
-  <StackLayout col="0" row="1"></StackLayout>
-  <StackLayout colSpan="2" row="1" col="1">
-    <Image src="res://user_icon" stretch="none" row="2" colSpan="4" horizontalAlignment="center" verticalAlignment="center"></Image>
+  <!--<StackLayout col="0" row="1"></StackLayout>-->
+  <StackLayout row="1" >
+    <Image src="res://user_icon" stretch="aspectFit" row="2"  horizontalAlignment="center" verticalAlignment="center"></Image>
     <TextField hint="Username" keyboardType="email" returnKeyType="next" (returnPress)="focusPassword()" [(ngModel)]="user.userName"
-      [isEnabled]="!isAuthenticating" autocorrect="false" autocapitalizationType="none" row="3" colSpan="4" verticalAlignment="center"></TextField>
+      [isEnabled]="!isAuthenticating" autocorrect="false" autocapitalizationType="none" row="3"  verticalAlignment="center"></TextField>
     <TextField #password hint="Password" secure="true" returnKeyType="next" (returnPress)="focusDomain()" [(ngModel)]="user.password"
-      [isEnabled]="!isAuthenticating" [class.light]="!isLoggingIn" row="4" colSpan="4"></TextField>
+      [isEnabled]="!isAuthenticating" [class.light]="!isLoggingIn" row="4" ></TextField>
     <DropDown #domain [class.light]="!isLoggingIn" [isEnabled]="!isAuthenticating" [items]="domains" [selectedIndex]="selectedIndex"
-      (selectedIndexChanged)="onchange($event)" hint="Select Domain" (opened)="onopen()" row="5" colSpan="4">
+      (selectedIndexChanged)="onchange($event)" hint="Select Domain" (opened)="onopen()" row="5" >
     </DropDown>
     <ActivityIndicator [busy]="isAuthenticating" rowSpan="4"></ActivityIndicator>
   </StackLayout>
-  <StackLayout col="4" row="1"></StackLayout>
+  <!--<StackLayout col="4" row="1"></StackLayout>-->
 
-  <!--The bottom area where we show what to wear based on the weather forecast for the student's chosen departure time-->
-  <Label text="LOGIN" row="2" colSpan="4" (tap)="login()" verticalAlignment="bottom" class="footer"></Label>
+  <Label text="LOGIN" row="2"  (tap)="login()" verticalAlignment="bottom" class="footer"></Label>
 </GridLayout>

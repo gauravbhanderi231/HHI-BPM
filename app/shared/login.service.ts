@@ -13,22 +13,6 @@ import { BackendService } from "./backend.service";
 export class LoginService {
   constructor(private http: Http) { }
 
-  register(user: User) {
-    let headers = new Headers();
-    headers.append("Content-Type", "application/json");
-
-    return this.http.post(
-      BackendService.apiUrl + "Users",
-      JSON.stringify({
-        Username: user.email,
-        Email: user.email,
-        Password: user.password
-      }),
-      { headers: headers }
-    )
-    .catch(this.handleErrors);
-  }
-
   login(user: User) {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
@@ -36,7 +20,7 @@ export class LoginService {
     return this.http.post(
       BackendService.apiUrl + "oauth/token",
       JSON.stringify({
-        username: user.email,
+        username: user.userName,
         password: user.password,
         grant_type: "password"
       }),
@@ -51,19 +35,6 @@ export class LoginService {
 
   logoff() {
     BackendService.token = "";
-  }
-
-  resetPassword(email) {
-    let headers = new Headers();
-    headers.append("Content-Type", "application/json");
-
-    return this.http.post(
-      BackendService.apiUrl + "Users/resetpassword",
-      JSON.stringify({
-        Email: email
-      }),
-      { headers: headers }
-    ).catch(this.handleErrors);
   }
 
   handleErrors(error: Response) {
