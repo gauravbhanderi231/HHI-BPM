@@ -60,15 +60,4 @@ For more information on unit testing NativeScript apps, refer to the [NativeScri
 
 Groceries uses [Travis CI](https://travis-ci.org/) to verify all tests pass on each commit. Refer to the [`.travis.yml` configuration file](https://github.com/NativeScript/sample-Groceries/blob/master/.travis.yml) for details.
 
-<h3 id="telerik-platform">Telerik Platform</h3>
-
-If you’d like to try developing Groceries without going through the full setup, you may be interested in loading the app in the [Telerik Platform](http://www.telerik.com/platform):
-
-* [Run Groceries in the Telerik Platform](https://platform.telerik.com/#appbuilder/clone/https%3A%2F%2Fgithub.com%2FIcenium%2Fnativescript-sample-groceries)
-
-
-<!-- Note: The table above get generated with the following commands -->
-<!-- npm install -g github-contributors-list -->
-<!-- githubcontrib --owner NativeScript --repo sample-Groceries --cols 6 --sortOrder desc | pbcopy -->
-
 ![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/sample-groceries?pixel)
