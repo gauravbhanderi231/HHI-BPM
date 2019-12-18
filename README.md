@@ -17,7 +17,7 @@ Groceries is a NativeScript-built iOS and Android app for managing grocery lists
 This app is built with the NativeScript CLI. Once you have the [CLI installed](https://docs.nativescript.org/start/quick-setup), start by cloning the repo:
 
 ```
-$ git clone https://github.com/gauravbhanderi231/HHI-BPM/sample-Groceries.git
+$ git clone https://github.com/gauravbhanderi231/HHI-BPM.git
 $ cd sample-Groceries
 ```
 
