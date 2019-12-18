@@ -1,36 +1,6 @@
 # Groceries 
 
-Groceries is a NativeScript-built iOS and Android app for managing grocery lists. You can learn how to build a version of this app from scratch using either our [JavaScript getting started guide](http://docs.nativescript.org/tutorial/chapter-0), or our [TypeScript and Angular getting started guide](http://docs.nativescript.org/angular/tutorial/ng-chapter-0).
-
-<!-- * [Download](#download) -->
-
-* [Branches](#branches)
-* [Screenshots](#screenshots)
-* [Development](#development)
-    * [Linting](#linting)
-    * [Unit testing](#unit-testing)
-    * [Travis CI](#travis)
-    * [Telerik Platform](#telerik-platform)
-* [Contributors](#contributors)
-
-<h2 id="branches">Branches</h2>
-
-This repository contains a number of branches:
-
-* The [**master** branch](https://github.com/NativeScript/sample-Groceries/) shows how to build a robust, real-world app using NativeScript. The branch is built with TypeScript and Angular.
-
----
-
-* The [**angular-end** branch](https://github.com/NativeScript/sample-Groceries/tree/angular-end) contains the finished code for the [NativeScript _TypeScript and Angular_ getting started guide](http://docs.nativescript.org/angular/tutorial/ng-chapter-0).
-
----
-
-* The [**end** branch](https://github.com/NativeScript/sample-Groceries/tree/end) contains the finished code for the [NativeScript _JavaScript_ getting started guide](http://docs.nativescript.org/tutorial/chapter-0).
-
----
-
-* The [**web** branch](https://github.com/NativeScript/sample-Groceries/tree/web) contains a web version of Groceries that shares code with the NativeScript-built native app. The app is built with the Angular CLI.
-* The [**gh-pages** branch](https://github.com/NativeScript/sample-Groceries/tree/gh-pages) contains the GitHub Pages hosted version of the web branch. You can view the web app live at <https://nativescript.github.io/sample-Groceries>.
+Groceries is a NativeScript-built iOS and Android app for managing grocery lists. 
 
 <h2 id="screenshots">Screenshots</h2>
 
